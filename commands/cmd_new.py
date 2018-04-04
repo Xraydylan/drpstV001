@@ -12,7 +12,9 @@ async def ex(args, message, client, invoke, server):
     if exist_all_folders(dbx,"/Pictures") == 4:
         if len(args) > 0:
             args_out = args.__str__()[1:-1].replace("'", "").replace(",", "")
-            if args_out == "update":
+            if args_out == "ping":
+                await client.send_message(message.channel, "Pong!")
+            elif args_out == "update":
                 print("UPDATING")
                 await update(dbx,client,message.channel)
             elif args_out == "reset info":
