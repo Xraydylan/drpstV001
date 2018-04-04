@@ -6,10 +6,19 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
+    print("Ready")
+
+
     dbx = dropbox.Dropbox(CONECT.DROP_TOKEN)
 
-    f = open('name_info.txt', 'rb')
+    metadata, f = dbx.files_download('/' + "name_info.txt")
 
-    dbx.files_upload(f.read(), "/test_txt.txt")
+    out = open("neu.txt", 'wb')
+    out.write(f.content)
+    out.close()
 
+    f = open('neu.txt', 'rb')
+
+    dbx.files_upload(f.read(), "/Test1/neu.txt")
+    f.close()
 client.run(CONECT.TOKEN)
