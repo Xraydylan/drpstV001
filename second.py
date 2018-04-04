@@ -11,14 +11,14 @@ async def on_ready():
 
     dbx = dropbox.Dropbox(CONECT.DROP_TOKEN)
 
-    metadata, f = dbx.files_download('/' + "name_info.txt")
+    metadata, f = dbx.files_download('/' + "name.jpg")
 
-    out = open("neu.txt", 'wb')
+    out = open("neu.jpg", 'wb')
     out.write(f.content)
     out.close()
 
     f = open('neu.txt', 'rb')
 
-    dbx.files_upload(f.read(), "/Test1/neu.txt")
+    dbx.files_upload(f.read(), "/Test1/neu.jpg")
     f.close()
 client.run(CONECT.TOKEN)
