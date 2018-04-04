@@ -17,7 +17,7 @@ async def on_ready():
     out.write(f.content)
     out.close()
 
-    f = open('neu.txt', 'rb')
+    f = open('neu.jpg', 'rb')
 
     dbx.files_upload(f.read(), "/Test1/neu.jpg")
     f.close()
