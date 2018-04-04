@@ -1,6 +1,7 @@
 import discord
 import dropbox
 import CONECT
+import random
 
 client = discord.Client()
 
